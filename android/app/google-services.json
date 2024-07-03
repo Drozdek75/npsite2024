@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "979768481152",
+    "firebase_url": "https://npsite2024-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "npsite2024",
+    "storage_bucket": "npsite2024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979768481152:android:d2619ccd7a46e34ef99d65",
+        "android_client_info": {
+          "package_name": "com.example.npsite"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaU9MPO-7ih9EQnDdqhO9SMXcrWt48-8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
