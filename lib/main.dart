@@ -149,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ListaIngredienti pesto = ListaIngredienti(key: 64, nome: 'pesto alla genovese', descrizione: 'pesto alla genovese', prezzo: 1.00);
         ListaIngredienti aglio = ListaIngredienti(key: 65, nome: 'aglio', descrizione: 'aglio rosa spagnolo', prezzo: 0.00);
         ListaIngredienti carciofi = ListaIngredienti(key: 66, nome: 'carciofi', descrizione: 'carciofi', prezzo: 1.00);
-        
+        ListaIngredienti basilico = ListaIngredienti(key: 67, nome: 'basilico', descrizione: 'basilico fresco', prezzo: 0.00);
 
         repoIngredienti repo = repoIngredienti(lstIngredienti: [
            mozzarella, pomodoro, olio, rosmarino, origano, prosciutto,
@@ -158,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
            salsiccia, uova, melanzane, zucchine, peperoni, brie, rucola, scaglie_grana, spinaci, pancetta,
            panna, stracchino, radicchio, provola, sfilacci, patate, mais, ricotta, bufala, ciliegino, asparagi, 
            feta, culatello, secchi, noci, brace, grana_gratuggiato, salmone, gamberetti, gambero, polpo, cozze, 
-           vongole, seppie, sopressa, pepe, pecorino, guanciale, pesto, aglio, carciofi
+           vongole, seppie, sopressa, pepe, pecorino, guanciale, pesto, aglio, carciofi, basilico
         ]);
 
 
@@ -185,7 +185,70 @@ class _MyHomePageState extends State<MyHomePage> {
         ListaPizze porcini_porchettap = ListaPizze(nome: 'porcini e porchetta', descrizione: 'pizza con porcini e porchetta', prezzo: 8.80, listaIngredienti: [2,1,24,22]);
         ListaPizze porcinip = ListaPizze(nome: 'porcini', descrizione: 'pizza con funghi porcini', prezzo: 7.80, listaIngredienti: [2,1,24]);
         ListaPizze capricciosap = ListaPizze(nome: 'capricciosa', descrizione: 'pizza con funghi, prosciutto e carciofi', prezzo: 8.80, listaIngredienti: [2,1,6,7,66]);
-      
+        ListaPizze quattro_stagionip = ListaPizze(nome: 'quattro stagioni', descrizione: 'pizza quattro satgioni, prosciutto, funghi, carciofi e acciughe', prezzo: 9.00, listaIngredienti: [2,1,6,7,66,12]);
+        ListaPizze salsicciap = ListaPizze(nome: 'salsiccia', descrizione: 'pizza con salsiccia fresca', prezzo: 7.00, listaIngredienti: [2,1,26]);
+        ListaPizze rusticap = ListaPizze(nome: 'rustica', descrizione: 'pizza con salamino piccante e cipolla', prezzo: 7.80, listaIngredienti: [2,1,8,16]);
+        ListaPizze bersaglierap = ListaPizze(nome: 'bersagliera', descrizione: 'pizza con prosciutto, funghi, salamino, olive, pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,6,7,8,14,25]);
+        ListaPizze contadinap = ListaPizze(nome: 'contadina', descrizione: 'pizza con prosciutto, funghi, salsiccia, uova', prezzo: 8.50, listaIngredienti: [2,1,6,7,26,27,25]);
+        ListaPizze svincentp = ListaPizze(nome: 'st.Vincent', descrizione: 'pizza con verdure, porcini e prosciutto di parma', prezzo: 9.00, listaIngredienti: [2,1,28,29,30,24,21,25]);
+        ListaPizze boscaiolap = ListaPizze(nome: 'boscaiola', descrizione: 'pizza con tris di funghi e speck', prezzo: 8.50, listaIngredienti: [2,1,7,20,24,10]);
+        ListaPizze salzanop = ListaPizze(nome: 'salzano', descrizione: 'pizza con verdure miste, salamino, olive, pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,28,29,30,8,14,25]);
+        ListaPizze brie_speckp = ListaPizze(nome: 'briè e speck', descrizione: 'pizza con briè e speck', prezzo: 8.50, listaIngredienti: [2,1,31,10]);
+        ListaPizze estivap = ListaPizze(nome: 'estiva', descrizione: 'pizza con pomodoro fresco, rucola e scaglie di grana', prezzo: 7.80, listaIngredienti: [2,1,32,33,25]);
+        ListaPizze pazzap = ListaPizze(nome: 'pazza', descrizione: 'pizza con spinaci, gorgonzola, salamino, uova e pancetta', prezzo: 9.00, listaIngredienti: [2,1,34,8,9,27,35]);
+        ListaPizze panna_speck_funghip = ListaPizze(nome: 'panna speck e funghi', descrizione: 'pizza con panna, speck e funghi', prezzo: 8.80, listaIngredienti: [2,1,36,10,7]);
+        ListaPizze angelap = ListaPizze(nome: 'angela', descrizione: 'pizza con stracchino, rucola e pomodoro fresco', prezzo: 7.50, listaIngredienti: [2,1,37,25,32]);
+        ListaPizze genuinap = ListaPizze(nome: 'genuina', descrizione: 'pizza con radicchio/asparagi salsiccia e provola', prezzo: 9.00, listaIngredienti: [2,1,38,26,39]);
+        ListaPizze annap = ListaPizze(nome: 'anna', descrizione: 'pizza con acciughe e peperoni', prezzo: 7.80, listaIngredienti: [2,1,12,30]);
+        ListaPizze valtellinap = ListaPizze(nome: 'valtellina', descrizione: 'pizza con bresaola, rucola, pomodoro fresco e scaglie di grana', prezzo: 9.00, listaIngredienti: [2,1,11,32,25,33]);
+        ListaPizze curiosap = ListaPizze(nome: 'curiosa', descrizione: 'pizza con sfilacci di cavallo, rucola e pomodoro fresco', prezzo: 9.00, listaIngredienti: [2,1,40,32,25]);
+        ListaPizze patatosap = ListaPizze(nome: 'patate fritte', descrizione: 'pizza con patate fritte', prezzo: 7.00, listaIngredienti: [2,1,41]);
+        ListaPizze americanap = ListaPizze(nome: 'americana', descrizione: 'pizza con patate e wurstel', prezzo: 8.00, listaIngredienti: [2,1,23,41]);
+        ListaPizze brie_mais_frescop = ListaPizze(nome: 'briè mai e pomodoro fresco', descrizione: 'pizza con briè mais e pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,31,42,25]);
+        ListaPizze rucola_pomodoro_frescop = ListaPizze(nome: 'rucola e pomodoro fresco', descrizione: 'pizza con rucola e pomodoro fresco', prezzo: 7.20, listaIngredienti: [2,1,32,25]);
+        ListaPizze ricotta_spinacip = ListaPizze(nome: 'ricotta e spinaci', descrizione: 'pizza con ricotta e spinaci', prezzo: 7.50, listaIngredienti: [2,1,43,34]);
+        ListaPizze affumicatap = ListaPizze(nome: 'affumicata', descrizione: 'pizza con provola e speck', prezzo: 8.50, listaIngredienti: [2,1,39,10]);
+        ListaPizze docp = ListaPizze(nome: 'doc', descrizione: 'pizza con bufala, grana e basilico', prezzo: 8.80, listaIngredienti: [2,1,44,52,67]);
+        ListaPizze bufalinap = ListaPizze(nome: 'bufalina', descrizione: 'pizza con bufala e ciliegino', prezzo: 8.80, listaIngredienti: [2,1,44,45]);
+        ListaPizze paesanap = ListaPizze(nome: 'paesana', descrizione: 'pizza con porchetta e pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,22,25]);
+        ListaPizze venetap = ListaPizze(nome: 'veneta', descrizione: 'pizza radicchi/asparagi, salsiccia e cipolla', prezzo: 9.00, listaIngredienti: [2,1,38,26,16]);
+        ListaPizze asparagi_uovap = ListaPizze(nome: 'asparagi e uova', descrizione: 'pizza con asparagi e uova', prezzo: 7.80, listaIngredienti: [2,1,46,27]);
+        ListaPizze grecap = ListaPizze(nome: 'greca', descrizione: 'pizza con feta greca, cipolla e olive taggiasche', prezzo: 8.50, listaIngredienti: [2,1,47,16,14]);
+        ListaPizze deliziosap = ListaPizze(nome: 'deliziosa', descrizione: 'pizza con ricotta, ciliegino, rucola, grana a ascaglie e bresaola', prezzo: 8.80, listaIngredienti: [2,1,45,32,43,33,11]);
+        ListaPizze culatellop = ListaPizze(nome: 'culatello', descrizione: 'pizza con pomodori secchi e culatello di sauris', prezzo: 9.00, listaIngredienti: [2,1,48,49]);
+        ListaPizze brie_speck_nocip = ListaPizze(nome: 'briè speck e noci', descrizione: 'pizza con briè speck e noci', prezzo: 8.80, listaIngredienti: [2,1,31,10,50]);
+        ListaPizze cotto_asparagip = ListaPizze(nome: 'cotto alla brace ed asparagi', descrizione: 'pizza con cotto Praga ed asparagi', prezzo: 8.50, listaIngredienti: [2,1,51,46]);
+        
+
+
+
+
+
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
        
         //menu m = menu(listaPizze: [margherita]);
 
