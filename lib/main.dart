@@ -162,62 +162,100 @@ class _MyHomePageState extends State<MyHomePage> {
         ]);
 
 
-        ListaPizze margheritap = ListaPizze(nome: 'margherita', descrizione: 'pizza margherita', prezzo: 5.50, listaIngredienti: [2,1]);
-        ListaPizze marinarap = ListaPizze(nome: 'marinara', descrizione: 'pizza marinara', prezzo: 4.80, listaIngredienti: [2,65, 5]);
-        ListaPizze panepizzap = ListaPizze(nome: 'pane pizza', descrizione: 'disco di pasta con oilo evo e rosmarino/origano', prezzo: 3.50, listaIngredienti: [3,4,5]);
-        ListaPizze prosciuttop = ListaPizze(nome: 'prosciutto', descrizione: 'pizza con prosciutto cotto', prezzo: 6.50, listaIngredienti: [2,1,6]);
-        ListaPizze pfp = ListaPizze(nome: 'prosciutto e funghi', descrizione: 'pizza con prosciutto e funghi', prezzo: 7.80, listaIngredienti: [2,1,6,7]);
-        ListaPizze diavolap = ListaPizze(nome: 'diavola', descrizione: 'pizza con salamino piccante', prezzo: 7.20, listaIngredienti: [2,1,8]);
-        ListaPizze funghip = ListaPizze(nome: 'funghi', descrizione: 'pizza con funghi', prezzo: 6.50, listaIngredienti: [2,1,7]);
-        ListaPizze gorgonzola_speckp = ListaPizze(nome: 'gorgonzola e speck', descrizione: 'pizza con gorgonzola e speck', prezzo: 8.20, listaIngredienti: [2,1,9,10]);
-        ListaPizze bresaolap = ListaPizze(nome: 'bresaola', descrizione: 'pizza con bresaola', prezzo: 7.50, listaIngredienti: [2,1,11]);
-        ListaPizze sicilianap = ListaPizze(nome: 'siciliana', descrizione: 'pizza alla siciliana', prezzo: 8.00, listaIngredienti: [2,1,8,12,13,14]);
-        ListaPizze tonnop = ListaPizze(nome: 'tonno', descrizione: 'pizza con tonno', prezzo: 6.80, listaIngredienti: [2,1,15]);
-        ListaPizze tonno_cipollap = ListaPizze(nome: 'tonno e cipolla', descrizione: 'pizza con tonno e cipolla', prezzo: 7.50, listaIngredienti: [2,1,15,16]);
-        ListaPizze pugliesep = ListaPizze(nome: 'pugliese', descrizione: 'pizza con cipolla', prezzo: 6.00, listaIngredienti: [2,1,16]);
-        ListaPizze quattro_formaggip = ListaPizze(nome: 'quattro formaggi', descrizione: 'pizza con quattro formaggi', prezzo: 7.80, listaIngredienti: [2,1,9,17,18,19]);
-        ListaPizze romanap = ListaPizze(nome: 'romana', descrizione: 'pizza con acciughe', prezzo: 6.80, listaIngredienti: [2,1,12]);
-        ListaPizze chiodinip = ListaPizze(nome: 'chiodini', descrizione: 'pizza con funghi chiodini', prezzo: 6.80, listaIngredienti: [2,1,20]);
-        ListaPizze sdanielep = ListaPizze(nome: 'Parma', descrizione: 'pizza con crudi di Parma', prezzo: 8.00, listaIngredienti: [2,1,21]);
-        ListaPizze tirolesep = ListaPizze(nome: 'tirolese', descrizione: 'pizza con speck', prezzo: 8.00, listaIngredienti: [2,1,10]);
-        ListaPizze porchettap = ListaPizze(nome: 'porchetta', descrizione: 'pizza con porchetta trevigiana', prezzo: 8.00, listaIngredienti: [2,1,22]);
-        ListaPizze viennesep = ListaPizze(nome: 'viennese', descrizione: 'pizza con wurstel', prezzo: 7.00, listaIngredienti: [2,1,23]);
-        ListaPizze porcini_porchettap = ListaPizze(nome: 'porcini e porchetta', descrizione: 'pizza con porcini e porchetta', prezzo: 8.80, listaIngredienti: [2,1,24,22]);
-        ListaPizze porcinip = ListaPizze(nome: 'porcini', descrizione: 'pizza con funghi porcini', prezzo: 7.80, listaIngredienti: [2,1,24]);
-        ListaPizze capricciosap = ListaPizze(nome: 'capricciosa', descrizione: 'pizza con funghi, prosciutto e carciofi', prezzo: 8.80, listaIngredienti: [2,1,6,7,66]);
-        ListaPizze quattro_stagionip = ListaPizze(nome: 'quattro stagioni', descrizione: 'pizza quattro satgioni, prosciutto, funghi, carciofi e acciughe', prezzo: 9.00, listaIngredienti: [2,1,6,7,66,12]);
-        ListaPizze salsicciap = ListaPizze(nome: 'salsiccia', descrizione: 'pizza con salsiccia fresca', prezzo: 7.00, listaIngredienti: [2,1,26]);
-        ListaPizze rusticap = ListaPizze(nome: 'rustica', descrizione: 'pizza con salamino piccante e cipolla', prezzo: 7.80, listaIngredienti: [2,1,8,16]);
-        ListaPizze bersaglierap = ListaPizze(nome: 'bersagliera', descrizione: 'pizza con prosciutto, funghi, salamino, olive, pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,6,7,8,14,25]);
-        ListaPizze contadinap = ListaPizze(nome: 'contadina', descrizione: 'pizza con prosciutto, funghi, salsiccia, uova', prezzo: 8.50, listaIngredienti: [2,1,6,7,26,27,25]);
-        ListaPizze svincentp = ListaPizze(nome: 'st.Vincent', descrizione: 'pizza con verdure, porcini e prosciutto di parma', prezzo: 9.00, listaIngredienti: [2,1,28,29,30,24,21,25]);
-        ListaPizze boscaiolap = ListaPizze(nome: 'boscaiola', descrizione: 'pizza con tris di funghi e speck', prezzo: 8.50, listaIngredienti: [2,1,7,20,24,10]);
-        ListaPizze salzanop = ListaPizze(nome: 'salzano', descrizione: 'pizza con verdure miste, salamino, olive, pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,28,29,30,8,14,25]);
-        ListaPizze brie_speckp = ListaPizze(nome: 'briè e speck', descrizione: 'pizza con briè e speck', prezzo: 8.50, listaIngredienti: [2,1,31,10]);
-        ListaPizze estivap = ListaPizze(nome: 'estiva', descrizione: 'pizza con pomodoro fresco, rucola e scaglie di grana', prezzo: 7.80, listaIngredienti: [2,1,32,33,25]);
-        ListaPizze pazzap = ListaPizze(nome: 'pazza', descrizione: 'pizza con spinaci, gorgonzola, salamino, uova e pancetta', prezzo: 9.00, listaIngredienti: [2,1,34,8,9,27,35]);
-        ListaPizze panna_speck_funghip = ListaPizze(nome: 'panna speck e funghi', descrizione: 'pizza con panna, speck e funghi', prezzo: 8.80, listaIngredienti: [2,1,36,10,7]);
-        ListaPizze angelap = ListaPizze(nome: 'angela', descrizione: 'pizza con stracchino, rucola e pomodoro fresco', prezzo: 7.50, listaIngredienti: [2,1,37,25,32]);
-        ListaPizze genuinap = ListaPizze(nome: 'genuina', descrizione: 'pizza con radicchio/asparagi salsiccia e provola', prezzo: 9.00, listaIngredienti: [2,1,38,26,39]);
-        ListaPizze annap = ListaPizze(nome: 'anna', descrizione: 'pizza con acciughe e peperoni', prezzo: 7.80, listaIngredienti: [2,1,12,30]);
-        ListaPizze valtellinap = ListaPizze(nome: 'valtellina', descrizione: 'pizza con bresaola, rucola, pomodoro fresco e scaglie di grana', prezzo: 9.00, listaIngredienti: [2,1,11,32,25,33]);
-        ListaPizze curiosap = ListaPizze(nome: 'curiosa', descrizione: 'pizza con sfilacci di cavallo, rucola e pomodoro fresco', prezzo: 9.00, listaIngredienti: [2,1,40,32,25]);
-        ListaPizze patatosap = ListaPizze(nome: 'patate fritte', descrizione: 'pizza con patate fritte', prezzo: 7.00, listaIngredienti: [2,1,41]);
-        ListaPizze americanap = ListaPizze(nome: 'americana', descrizione: 'pizza con patate e wurstel', prezzo: 8.00, listaIngredienti: [2,1,23,41]);
-        ListaPizze brie_mais_frescop = ListaPizze(nome: 'briè mai e pomodoro fresco', descrizione: 'pizza con briè mais e pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,31,42,25]);
-        ListaPizze rucola_pomodoro_frescop = ListaPizze(nome: 'rucola e pomodoro fresco', descrizione: 'pizza con rucola e pomodoro fresco', prezzo: 7.20, listaIngredienti: [2,1,32,25]);
-        ListaPizze ricotta_spinacip = ListaPizze(nome: 'ricotta e spinaci', descrizione: 'pizza con ricotta e spinaci', prezzo: 7.50, listaIngredienti: [2,1,43,34]);
-        ListaPizze affumicatap = ListaPizze(nome: 'affumicata', descrizione: 'pizza con provola e speck', prezzo: 8.50, listaIngredienti: [2,1,39,10]);
-        ListaPizze docp = ListaPizze(nome: 'doc', descrizione: 'pizza con bufala, grana e basilico', prezzo: 8.80, listaIngredienti: [2,1,44,52,67]);
-        ListaPizze bufalinap = ListaPizze(nome: 'bufalina', descrizione: 'pizza con bufala e ciliegino', prezzo: 8.80, listaIngredienti: [2,1,44,45]);
-        ListaPizze paesanap = ListaPizze(nome: 'paesana', descrizione: 'pizza con porchetta e pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,22,25]);
-        ListaPizze venetap = ListaPizze(nome: 'veneta', descrizione: 'pizza radicchi/asparagi, salsiccia e cipolla', prezzo: 9.00, listaIngredienti: [2,1,38,26,16]);
-        ListaPizze asparagi_uovap = ListaPizze(nome: 'asparagi e uova', descrizione: 'pizza con asparagi e uova', prezzo: 7.80, listaIngredienti: [2,1,46,27]);
-        ListaPizze grecap = ListaPizze(nome: 'greca', descrizione: 'pizza con feta greca, cipolla e olive taggiasche', prezzo: 8.50, listaIngredienti: [2,1,47,16,14]);
-        ListaPizze deliziosap = ListaPizze(nome: 'deliziosa', descrizione: 'pizza con ricotta, ciliegino, rucola, grana a ascaglie e bresaola', prezzo: 8.80, listaIngredienti: [2,1,45,32,43,33,11]);
-        ListaPizze culatellop = ListaPizze(nome: 'culatello', descrizione: 'pizza con pomodori secchi e culatello di sauris', prezzo: 9.00, listaIngredienti: [2,1,48,49]);
-        ListaPizze brie_speck_nocip = ListaPizze(nome: 'briè speck e noci', descrizione: 'pizza con briè speck e noci', prezzo: 8.80, listaIngredienti: [2,1,31,10,50]);
-        ListaPizze cotto_asparagip = ListaPizze(nome: 'cotto alla brace ed asparagi', descrizione: 'pizza con cotto Praga ed asparagi', prezzo: 8.50, listaIngredienti: [2,1,51,46]);
+        ListaPizze margheritap = ListaPizze(nome: 'margherita', descrizione: 'pizza margherita', prezzo: 5.50, listaIngredienti: [2,1], tipologia: 'C');
+        ListaPizze marinarap = ListaPizze(nome: 'marinara', descrizione: 'pizza marinara', prezzo: 4.80, listaIngredienti: [2,65, 5], tipologia: 'C');
+        ListaPizze panepizzap = ListaPizze(nome: 'pane pizza', descrizione: 'disco di pasta con oilo evo e rosmarino/origano', prezzo: 3.50, listaIngredienti: [3,4,5], tipologia: 'C');
+        ListaPizze prosciuttop = ListaPizze(nome: 'prosciutto', descrizione: 'pizza con prosciutto cotto', prezzo: 6.50, listaIngredienti: [2,1,6], tipologia: 'C');
+        ListaPizze pfp = ListaPizze(nome: 'prosciutto e funghi', descrizione: 'pizza con prosciutto e funghi', prezzo: 7.80, listaIngredienti: [2,1,6,7], tipologia: 'C');
+        ListaPizze diavolap = ListaPizze(nome: 'diavola', descrizione: 'pizza con salamino piccante', prezzo: 7.20, listaIngredienti: [2,1,8], tipologia: 'C');
+        ListaPizze funghip = ListaPizze(nome: 'funghi', descrizione: 'pizza con funghi', prezzo: 6.50, listaIngredienti: [2,1,7], tipologia: 'C');
+        ListaPizze gorgonzola_speckp = ListaPizze(nome: 'gorgonzola e speck', descrizione: 'pizza con gorgonzola e speck', prezzo: 8.20, listaIngredienti: [2,1,9,10], tipologia: 'C');
+        ListaPizze bresaolap = ListaPizze(nome: 'bresaola', descrizione: 'pizza con bresaola', prezzo: 7.50, listaIngredienti: [2,1,11], tipologia: 'C');
+        ListaPizze sicilianap = ListaPizze(nome: 'siciliana', descrizione: 'pizza alla siciliana', prezzo: 8.00, listaIngredienti: [2,1,8,12,13,14], tipologia: 'C');
+        ListaPizze tonnop = ListaPizze(nome: 'tonno', descrizione: 'pizza con tonno', prezzo: 6.80, listaIngredienti: [2,1,15], tipologia: 'C');
+        ListaPizze tonno_cipollap = ListaPizze(nome: 'tonno e cipolla', descrizione: 'pizza con tonno e cipolla', prezzo: 7.50, listaIngredienti: [2,1,15,16], tipologia: 'C');
+        ListaPizze pugliesep = ListaPizze(nome: 'pugliese', descrizione: 'pizza con cipolla', prezzo: 6.00, listaIngredienti: [2,1,16], tipologia: 'C');
+        ListaPizze quattro_formaggip = ListaPizze(nome: 'quattro formaggi', descrizione: 'pizza con quattro formaggi', prezzo: 7.80, listaIngredienti: [2,1,9,17,18,19], tipologia: 'C');
+        ListaPizze romanap = ListaPizze(nome: 'romana', descrizione: 'pizza con acciughe', prezzo: 6.80, listaIngredienti: [2,1,12], tipologia: 'C');
+        ListaPizze chiodinip = ListaPizze(nome: 'chiodini', descrizione: 'pizza con funghi chiodini', prezzo: 6.80, listaIngredienti: [2,1,20], tipologia: 'C');
+        ListaPizze sdanielep = ListaPizze(nome: 'Parma', descrizione: 'pizza con crudi di Parma', prezzo: 8.00, listaIngredienti: [2,1,21], tipologia: 'C');
+        ListaPizze tirolesep = ListaPizze(nome: 'tirolese', descrizione: 'pizza con speck', prezzo: 8.00, listaIngredienti: [2,1,10], tipologia: 'C');
+        ListaPizze porchettap = ListaPizze(nome: 'porchetta', descrizione: 'pizza con porchetta trevigiana', prezzo: 8.00, listaIngredienti: [2,1,22], tipologia: 'C');
+        ListaPizze viennesep = ListaPizze(nome: 'viennese', descrizione: 'pizza con wurstel', prezzo: 7.00, listaIngredienti: [2,1,23], tipologia: 'C');
+        ListaPizze porcini_porchettap = ListaPizze(nome: 'porcini e porchetta', descrizione: 'pizza con porcini e porchetta', prezzo: 8.80, listaIngredienti: [2,1,24,22], tipologia: 'C');
+        ListaPizze porcinip = ListaPizze(nome: 'porcini', descrizione: 'pizza con funghi porcini', prezzo: 7.80, listaIngredienti: [2,1,24], tipologia: 'C');
+        ListaPizze capricciosap = ListaPizze(nome: 'capricciosa', descrizione: 'pizza con funghi, prosciutto e carciofi', prezzo: 8.80, listaIngredienti: [2,1,6,7,66], tipologia: 'C');
+        ListaPizze quattro_stagionip = ListaPizze(nome: 'quattro stagioni', descrizione: 'pizza quattro satgioni, prosciutto, funghi, carciofi e acciughe', prezzo: 9.00, listaIngredienti: [2,1,6,7,66,12], tipologia: 'C');
+        ListaPizze salsicciap = ListaPizze(nome: 'salsiccia', descrizione: 'pizza con salsiccia fresca', prezzo: 7.00, listaIngredienti: [2,1,26], tipologia: 'C');
+        ListaPizze rusticap = ListaPizze(nome: 'rustica', descrizione: 'pizza con salamino piccante e cipolla', prezzo: 7.80, listaIngredienti: [2,1,8,16], tipologia: 'S');
+        ListaPizze bersaglierap = ListaPizze(nome: 'bersagliera', descrizione: 'pizza con prosciutto, funghi, salamino, olive, pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,6,7,8,14,25], tipologia: 'S');
+        ListaPizze contadinap = ListaPizze(nome: 'contadina', descrizione: 'pizza con prosciutto, funghi, salsiccia, uova', prezzo: 8.50, listaIngredienti: [2,1,6,7,26,27,25], tipologia: 'S');
+        ListaPizze svincentp = ListaPizze(nome: 'st.Vincent', descrizione: 'pizza con verdure, porcini e prosciutto di parma', prezzo: 9.00, listaIngredienti: [2,1,28,29,30,24,21,25], tipologia: 'S');
+        ListaPizze boscaiolap = ListaPizze(nome: 'boscaiola', descrizione: 'pizza con tris di funghi e speck', prezzo: 8.50, listaIngredienti: [2,1,7,20,24,10], tipologia: 'S');
+        ListaPizze salzanop = ListaPizze(nome: 'salzano', descrizione: 'pizza con verdure miste, salamino, olive, pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,28,29,30,8,14,25], tipologia: 'S');
+        ListaPizze brie_speckp = ListaPizze(nome: 'briè e speck', descrizione: 'pizza con briè e speck', prezzo: 8.50, listaIngredienti: [2,1,31,10], tipologia: 'S');
+        ListaPizze estivap = ListaPizze(nome: 'estiva', descrizione: 'pizza con pomodoro fresco, rucola e scaglie di grana', prezzo: 7.80, listaIngredienti: [2,1,32,33,25], tipologia: 'S');
+        ListaPizze pazzap = ListaPizze(nome: 'pazza', descrizione: 'pizza con spinaci, gorgonzola, salamino, uova e pancetta', prezzo: 9.00, listaIngredienti: [2,1,34,8,9,27,35], tipologia: 'S');
+        ListaPizze panna_speck_funghip = ListaPizze(nome: 'panna speck e funghi', descrizione: 'pizza con panna, speck e funghi', prezzo: 8.80, listaIngredienti: [2,1,36,10,7], tipologia: 'S');
+        ListaPizze angelap = ListaPizze(nome: 'angela', descrizione: 'pizza con stracchino, rucola e pomodoro fresco', prezzo: 7.50, listaIngredienti: [2,1,37,25,32], tipologia: 'S');
+        ListaPizze genuinap = ListaPizze(nome: 'genuina', descrizione: 'pizza con radicchio/asparagi salsiccia e provola', prezzo: 9.00, listaIngredienti: [2,1,38,26,39], tipologia: 'S');
+        ListaPizze annap = ListaPizze(nome: 'anna', descrizione: 'pizza con acciughe e peperoni', prezzo: 7.80, listaIngredienti: [2,1,12,30], tipologia: 'S');
+        ListaPizze valtellinap = ListaPizze(nome: 'valtellina', descrizione: 'pizza con bresaola, rucola, pomodoro fresco e scaglie di grana', prezzo: 9.00, listaIngredienti: [2,1,11,32,25,33], tipologia: 'S');
+        ListaPizze curiosap = ListaPizze(nome: 'curiosa', descrizione: 'pizza con sfilacci di cavallo, rucola e pomodoro fresco', prezzo: 9.00, listaIngredienti: [2,1,40,32,25], tipologia: 'S');
+        ListaPizze patatosap = ListaPizze(nome: 'patate fritte', descrizione: 'pizza con patate fritte', prezzo: 7.00, listaIngredienti: [2,1,41], tipologia: 'S');
+        ListaPizze americanap = ListaPizze(nome: 'americana', descrizione: 'pizza con patate e wurstel', prezzo: 8.00, listaIngredienti: [2,1,23,41], tipologia: 'S');
+        ListaPizze brie_mais_frescop = ListaPizze(nome: 'briè mai e pomodoro fresco', descrizione: 'pizza con briè mais e pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,31,42,25], tipologia: 'S');
+        ListaPizze rucola_pomodoro_frescop = ListaPizze(nome: 'rucola e pomodoro fresco', descrizione: 'pizza con rucola e pomodoro fresco', prezzo: 7.20, listaIngredienti: [2,1,32,25], tipologia: 'S');
+        ListaPizze ricotta_spinacip = ListaPizze(nome: 'ricotta e spinaci', descrizione: 'pizza con ricotta e spinaci', prezzo: 7.50, listaIngredienti: [2,1,43,34], tipologia: 'S');
+        ListaPizze affumicatap = ListaPizze(nome: 'affumicata', descrizione: 'pizza con provola e speck', prezzo: 8.50, listaIngredienti: [2,1,39,10], tipologia: 'S');
+        ListaPizze docp = ListaPizze(nome: 'doc', descrizione: 'pizza con bufala, grana e basilico', prezzo: 8.80, listaIngredienti: [2,1,44,52,67], tipologia: 'S');
+        ListaPizze bufalinap = ListaPizze(nome: 'bufalina', descrizione: 'pizza con bufala e ciliegino', prezzo: 8.80, listaIngredienti: [2,1,44,45], tipologia: 'S');
+        ListaPizze paesanap = ListaPizze(nome: 'paesana', descrizione: 'pizza con porchetta e pomodoro fresco', prezzo: 8.80, listaIngredienti: [2,1,22,25], tipologia: 'S');
+        ListaPizze venetap = ListaPizze(nome: 'veneta', descrizione: 'pizza radicchi/asparagi, salsiccia e cipolla', prezzo: 9.00, listaIngredienti: [2,1,38,26,16],tipologia: 'S');
+        ListaPizze asparagi_uovap = ListaPizze(nome: 'asparagi e uova', descrizione: 'pizza con asparagi e uova', prezzo: 7.80, listaIngredienti: [2,1,46,27], tipologia: 'S');
+        ListaPizze grecap = ListaPizze(nome: 'greca', descrizione: 'pizza con feta greca, cipolla e olive taggiasche', prezzo: 8.50, listaIngredienti: [2,1,47,16,14], tipologia: 'S');
+        ListaPizze deliziosap = ListaPizze(nome: 'deliziosa', descrizione: 'pizza con ricotta, ciliegino, rucola, grana a ascaglie e bresaola', prezzo: 8.80, listaIngredienti: [2,1,45,32,43,33,11], tipologia: 'S');
+        ListaPizze culatellop = ListaPizze(nome: 'culatello', descrizione: 'pizza con pomodori secchi e culatello di sauris', prezzo: 9.00, listaIngredienti: [2,1,48,49], tipologia: 'S');
+        ListaPizze brie_speck_nocip = ListaPizze(nome: 'briè speck e noci', descrizione: 'pizza con briè speck e noci', prezzo: 8.80, listaIngredienti: [2,1,31,10,50], tipologia: 'S');
+        ListaPizze cotto_asparagip = ListaPizze(nome: 'cotto alla brace ed asparagi', descrizione: 'pizza con cotto Praga ed asparagi', prezzo: 8.50, listaIngredienti: [2,1,51,46], tipologia: 'S');
+        ListaPizze pancetta_uovap = ListaPizze(nome: 'pancetta e uova', descrizione: 'pizza con pancetta styfata e uova', prezzo: 7.80, listaIngredienti: [2,1,35,27], tipologia: 'S');
+        ListaPizze peperonip = ListaPizze(nome: 'peperoni', descrizione: 'pizza con peperoni freschi cotti al forno', prezzo: 7.00, listaIngredienti: [2,1,30], tipologia: 'V');
+        ListaPizze melanzanep = ListaPizze(nome: 'melanzane', descrizione: 'pizza con melanzane fresche cotte al forno', prezzo: 7.00, listaIngredienti: [2,1,28], tipologia: 'V');
+        ListaPizze zucchinep = ListaPizze(nome: 'zucchine', descrizione: 'pizza con zucchine fresche cotte al forno', prezzo: 7.00, listaIngredienti: [2,1,51,29], tipologia: 'V');
+        ListaPizze moritzp = ListaPizze(nome: 'St.Moritz', descrizione: 'pizza con verdure, gorgonzola, cipolla e speck', prezzo: 9.00, listaIngredienti: [2,1,51,28,29,30,9,16,25,10], tipologia: 'V');
+        ListaPizze parmigianap = ListaPizze(nome: 'parmigiana', descrizione: 'pizza con melanzane e grana', prezzo: 7.80, listaIngredienti: [2,1,28,52], tipologia: 'V');
+        ListaPizze trevisop = ListaPizze(nome: 'Treviso', descrizione: 'pizza con radicchio/asparagi, formaggi senza pomodoro', prezzo: 9.00, listaIngredienti: [1,38,17,18,19], tipologia: 'V');
+        ListaPizze radicchiop = ListaPizze(nome: 'radicchio', descrizione: 'pizza con radicchio di Treviso tardivo', prezzo: 8.20, listaIngredienti: [2,1,38], tipologia: 'V');
+        ListaPizze frescaip = ListaPizze(nome: 'fresca', descrizione: 'pizza con pomodoro grappolo fresco', prezzo: 6.80, listaIngredienti: [2,1,25], tipologia: 'V');
+        ListaPizze verdurep = ListaPizze(nome: 'verdure', descrizione: 'pizza con verdure fresche cotte al forno', prezzo: 8.20, listaIngredienti: [2,1,28,29,30,25], tipologia: 'V');
+        ListaPizze ecologicap = ListaPizze(nome: 'ecologica', descrizione: 'pizza con melanzane, zucchine, radicchio/asparagi', prezzo: 8.50, listaIngredienti: [2,1,28,29,38], tipologia: 'V');
+        ListaPizze calzone_classicop = ListaPizze(nome: 'calzone classico', descrizione: 'calzone con prosciutto e funghi', prezzo: 7.80, listaIngredienti: [2,1,6,7], tipologia: 'C');
+        ListaPizze calzone_vegetarianop = ListaPizze(nome: 'calzone vegetariano', descrizione: 'calzone con verdure miste', prezzo: 7.80, listaIngredienti: [2,1,28,29,30], tipologia: 'C');
+        ListaPizze calzone_farcitop = ListaPizze(nome: 'calzone farcito', descrizione: 'calzone con ricotta e salamino piccante', prezzo: 7.80, listaIngredienti: [2,1,43,8], tipologia: 'C');
+        ListaPizze calzone_mbp = ListaPizze(nome: 'calzone Monte Bianco', descrizione: 'calzone con ricotta, spinaci, grana e speck', prezzo: 8.00, listaIngredienti: [2,1,43,34,52,10], tipologia: 'C');
+        ListaPizze salmone_zucchinep = ListaPizze(nome: 'salmone e zucchine', descrizione: 'pizza con salmone e zucchine', prezzo: 9.00, listaIngredienti: [2,1,53,29], tipologia: 'P'); 
+        ListaPizze gamberettip = ListaPizze(nome: 'gamberetti', descrizione: 'pizza con gamberetti', prezzo: 8.20, listaIngredienti: [2,1,54], tipologia: 'P');
+        ListaPizze frutti_marep = ListaPizze(nome: 'frutti di mare', descrizione: 'pizza con frutti di mare', prezzo: 9.50, listaIngredienti: [2,1,55,56,57,58,59], tipologia: 'P');
+        ListaPizze salmonep = ListaPizze(nome: 'salmone', descrizione: 'pizza con salmone', prezzo: 8.80, listaIngredienti: [2,1,53], tipologia: 'P');
+        ListaPizze pannasalmonep = ListaPizze(nome: 'panna e salmone', descrizione: 'pizza con panna e salmone', prezzo: 9.00, listaIngredienti: [2,1,36,53], tipologia: 'P');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
 
 

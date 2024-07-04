@@ -29,12 +29,14 @@ class ListaPizze {
   String? descrizione;
   double? prezzo;
   List<int>? listaIngredienti;
+  String? tipologia;
 
-  ListaPizze({this.nome, this.descrizione, this.prezzo, this.listaIngredienti});
+  ListaPizze({this.nome, this.descrizione, this.prezzo, this.listaIngredienti, this.tipologia});
 
   ListaPizze.fromJson(Map<String, dynamic> json) {
     nome = json['nome'];
     descrizione = json['descrizione'];
+    tipologia = json['tipologia'];
     prezzo = json['prezzo'];
     if (json['listaIngredienti'] != null) {
     
@@ -46,6 +48,7 @@ class ListaPizze {
     data['nome'] = this.nome;
     data['descrizione'] = this.descrizione;
     data['prezzo'] = this.prezzo;
+    data['tipologia'] = this.tipologia;
     if (this.listaIngredienti != null) {
     
     }
