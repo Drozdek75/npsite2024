@@ -1,9 +1,13 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:npsite/models/menu.dart';
+import 'package:npsite/services/sqlite/DB_op.dart';
+import 'package:pine/di/dependency_injector_helper.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -12,6 +16,37 @@ void main() async{
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 );
+
+
+try {
+    final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: 'syseng75@gmail.com', password: 'gretalinda20092011!',);
+
+}on FirebaseAuthException catch(e) {
+    if(e.code == 'user-not-found') {
+      print('not user found for that email');
+    }
+    else if(e.code == 'wrong-password') {
+      print('wrong password provided fot that user.');
+    }
+}
+
+catch(e) {
+  print(e.toString());
+}/*
+try {
+  UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    email: "syseng75@gmail.com",
+    password: "gretalinda20092011!"
+  );
+} on FirebaseAuthException catch (e) {
+  if (e.code == 'weak-password') {
+    print('The password provided is too weak.');
+  } else if (e.code == 'email-already-in-use') {
+    print('The account already exists for that email.');
+  }
+} catch (e) {
+  print(e);
+}*/
   runApp(const MyApp());
 }
 
@@ -19,33 +54,33 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
+  
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+  Widget build(BuildContext context) => DependencyInjectorHelper(
+    blocs: [
+     
+    ],
+    mappers: [
+     
+    ],
+    providers: [
+      Provider<DbOp>(create: (context) => DbOp.instance,),
+    ],
+    repositories: [
+    
+    ],
+    child: MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'News App',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+      home: const MyHomePage(title: '')
+    ),
+  );
 }
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -74,6 +109,11 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
   void _incrementCounter() async{
+    DbOp db = DbOp.instance;
+   // await db.insertNewIngrediente();
+   ListaIngredienti pomo = ListaIngredienti(nome: 'pomodoro', descrizione: 'pomodoro san marzano pelato', prezzo: 1.00);
+   await db.insertNewIngrediente(pomo);
+    await db.getIngredienti();
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -150,6 +190,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ListaIngredienti aglio = ListaIngredienti(key: 65, nome: 'aglio', descrizione: 'aglio rosa spagnolo', prezzo: 0.00);
         ListaIngredienti carciofi = ListaIngredienti(key: 66, nome: 'carciofi', descrizione: 'carciofi', prezzo: 1.00);
         ListaIngredienti basilico = ListaIngredienti(key: 67, nome: 'basilico', descrizione: 'basilico fresco', prezzo: 0.00);
+        ListaIngredienti baby = ListaIngredienti(key: 68, nome: 'pizza baby', descrizione: 'pizza di dimensione ridotta', prezzo: -1.00, tipologia: 'ADD');
+        ListaIngredienti abbondante = ListaIngredienti(key: 69, nome: 'abbondante', descrizione: 'pizza con condimento abbondante', prezzo: 1.00, tipologia: 'ADD');
+        ListaIngredienti aggiunte = ListaIngredienti(key: 70, nome: 'aggiunte', descrizione: 'aggiunta di ingredienti, esclusi affettai, bufala, salmone gamberetti', prezzo: 1.00, tipologia: 'ADD');
+        ListaIngredienti aggiunte_affettato = ListaIngredienti(key: 71, nome: 'aggiunta affettato', descrizione: 'aggiunta affettato, esclusi gli affettati che vanno in cottura', prezzo: 1.80, tipologia: 'ADD');
+        ListaIngredienti aggiunte_bufala = ListaIngredienti(key: 72, nome: 'aggiunta mozzarella di bufala', descrizione: 'aggiunta mozzarella di bufala', prezzo: 2.00, tipologia: 'ADD');
+
 
         repoIngredienti repo = repoIngredienti(lstIngredienti: [
            mozzarella, pomodoro, olio, rosmarino, origano, prosciutto,
@@ -158,9 +204,14 @@ class _MyHomePageState extends State<MyHomePage> {
            salsiccia, uova, melanzane, zucchine, peperoni, brie, rucola, scaglie_grana, spinaci, pancetta,
            panna, stracchino, radicchio, provola, sfilacci, patate, mais, ricotta, bufala, ciliegino, asparagi, 
            feta, culatello, secchi, noci, brace, grana_gratuggiato, salmone, gamberetti, gambero, polpo, cozze, 
-           vongole, seppie, sopressa, pepe, pecorino, guanciale, pesto, aglio, carciofi, basilico
+           vongole, seppie, sopressa, pepe, pecorino, guanciale, pesto, aglio, carciofi, basilico, baby, abbondante, aggiunte, aggiunte_affettato, aggiunte_bufala
         ]);
 
+
+
+
+
+        
 
         ListaPizze margheritap = ListaPizze(nome: 'margherita', descrizione: 'pizza margherita', prezzo: 5.50, listaIngredienti: [2,1], tipologia: 'C');
         ListaPizze marinarap = ListaPizze(nome: 'marinara', descrizione: 'pizza marinara', prezzo: 4.80, listaIngredienti: [2,65, 5], tipologia: 'C');
@@ -238,56 +289,36 @@ class _MyHomePageState extends State<MyHomePage> {
         ListaPizze frutti_marep = ListaPizze(nome: 'frutti di mare', descrizione: 'pizza con frutti di mare', prezzo: 9.50, listaIngredienti: [2,1,55,56,57,58,59], tipologia: 'P');
         ListaPizze salmonep = ListaPizze(nome: 'salmone', descrizione: 'pizza con salmone', prezzo: 8.80, listaIngredienti: [2,1,53], tipologia: 'P');
         ListaPizze pannasalmonep = ListaPizze(nome: 'panna e salmone', descrizione: 'pizza con panna e salmone', prezzo: 9.00, listaIngredienti: [2,1,36,53], tipologia: 'P');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
+        ListaPizze vicentinap = ListaPizze(nome: 'vicentina', descrizione: 'pizza con peperoni, gorgonzola e sopressa ', prezzo: 8.80, listaIngredienti: [2,1,30,9,60], tipologia: 'NW');
+        ListaPizze griciap = ListaPizze(nome: 'gricia', descrizione: 'pizza con guanciale, pecorino e pepe nero', prezzo: 8.50, listaIngredienti: [1,63,62,61], tipologia: 'NW');
+        ListaPizze amatricianap = ListaPizze(nome: 'amatriciana', descrizione: 'pizza con guanciale, pecorino, cipolla e pomodoro fresco', prezzo: 9.00, listaIngredienti: [2,1,63,62,16,25], tipologia: 'NW');
+        ListaPizze manarolap = ListaPizze(nome: 'manarola', descrizione: 'pizza con pesto alla genovese, salsiccia e ciliegino', prezzo: 9.00, listaIngredienti: [1,64,26,25], tipologia: 'NW');
+        ListaPizze palladiop = ListaPizze(nome: 'palladio', descrizione: 'pizza con radicchio/asparagi, salamino, gorgonzola e crudo di parma', prezzo: 10.00, listaIngredienti: [2,1,38,8,9,21], tipologia: 'NW');
+        ListaPizze sostanziosap = ListaPizze(nome: 'sostanziosa', descrizione: 'pizza con zucchine, porcini, sopressa e cipolla', prezzo: 10.00, listaIngredienti: [2,1,29,24,60,16], tipologia: 'NW');
+        ListaPizze mt_margherita = ListaPizze(nome: 'margherita', descrizione: 'pizza da metro, unico gusto, margherita', prezzo: 25.00, tipologia: '1MT');
+        ListaPizze mt_farcita = ListaPizze(nome: 'farcita', descrizione: 'pizza da metro, divisibile massimo in 5 gusti, farciti, esclusi affettati, bufala, salmone, gamberetti e frutti di mare', prezzo: 28.00, tipologia: '1MT');
+        ListaPizze mt_farcita_affettati = ListaPizze(nome: 'farcita affettai e bufala', descrizione: 'pizza da metro, divisibile massimo in 5 gusti con affettao, bufala, gamberetti, salmone, frutti di mare', prezzo: 31.00, tipologia: '05MT');
+        ListaPizze mmt_margherita = ListaPizze(nome: 'margherita', descrizione: 'pizza da mezzo metro, unico gusto, margherita', prezzo: 15.00, tipologia: '1MT');
+        ListaPizze mmt_farcita = ListaPizze(nome: 'farcita', descrizione: 'pizza da mezzo metro, divisibile massimo in 5 gusti, farciti, esclusi affettati, bufala, salmone, gamberetti e frutti di mare', prezzo: 20.00, tipologia: '05MT');
+        ListaPizze mmt_farcita_affettati = ListaPizze(nome: 'farcita affettai e bufala', descrizione: 'pizza da mezzo metro, divisibile massimo in 5 gusti con affettao, bufala, gamberetti, salmone, frutti di mare', prezzo: 23.00, tipologia: '05MT');
 
         
         
         
         
         
+
+
+        repoPizze repoP = repoPizze(lstPizze: [
+          margheritap, marinarap, panepizzap, prosciuttop, pfp, diavolap, funghip, gorgonzola_speckp, bresaolap, sicilianap, tonnop, tonno_cipollap, pugliesep,
+          quattro_formaggip, romanap, chiodinip, sdanielep, tirolesep, porchettap, viennesep, porcini_porchettap, porcinip, capricciosap, quattro_stagionip, salsicciap, rusticap, bersaglierap,
+          contadinap, svincentp, boscaiolap, salzanop, brie_speckp, estivap, pazzap, panna_speck_funghip, angelap, genuinap, annap, valtellinap, curiosap, patatosap, americanap, brie_mais_frescop,
+          rucola_pomodoro_frescop, ricotta_spinacip, affumicatap, docp, bufalinap, paesanap, venetap, asparagi_uovap, grecap, deliziosap, culatellop, brie_speck_nocip, cotto_asparagip, pancetta_uovap,
+          peperonip, melanzanep, zucchinep, moritzp, parmigianap, trevisop, radicchiop, frescaip, verdurep, ecologicap, calzone_classicop, calzone_vegetarianop, calzone_farcitop, calzone_mbp, salmone_zucchinep,
+          gamberettip, frutti_marep, salmonep, pannasalmonep, vicentinap, griciap, amatricianap, manarolap, palladiop, sostanziosap
+        ]);
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       
         //menu m = menu(listaPizze: [margherita]);
 
 
@@ -297,10 +328,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-      printLongString(json.encode(repo));
-  /// log(json.encode(repo));
+     printLongString(json.encode(repo));
+    //print(json.encode(repo));
 
-      //  print(json.encode(repo));
+      // print(json.encode(repo));
 
         }catch(e) {
           print('errore: ${e.toString()}');
@@ -310,18 +341,38 @@ class _MyHomePageState extends State<MyHomePage> {
      
     });
 
- /*    DatabaseReference databaseReference =
-      FirebaseDatabase.instance.reference().child('data');
+    List<ListaPizze> lstPP = [];
 
+    DatabaseReference databaseReference =
+      FirebaseDatabase.instance.reference().child('pizze/lstPizze');
+try {
       final snapshot = await databaseReference.get();
-      if(snapshot.exists) {
-        Map<String, dynamic> mp = json.decode(snapshot.value.toString());
-        print(snapshot.value);
-        print(mp);
+      if(snapshot.exists) {        
+        String val = snapshot.value.toString();
+        Object? dataL = snapshot.value;
+        List<dynamic> ls = dataL as List<dynamic>;  
+        ls.forEach((element) {
+           lstPP.add(ListaPizze(nome: element['nome'],
+                                descrizione: element['descrizione'],
+                                tipologia: element['tipologia'],
+                                prezzo: element['prezzo'].toDouble(),
+                                listaIngredienti: element['listaIngredienti'],
+           ));
+        },);   
+        print(lstPP.length);
+        lstPP.forEach((element) {
+            print(element.listaIngredienti);
+            print(element.prezzo?.toStringAsFixed(2));
+        });
+       //print(repoP.lstPizze.length);
+        //print(mp);
       }
       else {
         print('value not exsist');
-      }*/
+      }
+}catch(exc) {
+  print(exc.toString());
+}
   }
 
   @override
@@ -332,7 +383,9 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
+    return 
+    
+    Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
