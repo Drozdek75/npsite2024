@@ -17,6 +17,7 @@ class DbOp {
  static const String TABLE_VALORI = 'tab_valori';
  static const String DET_PIZZE_VALORI = 'det_pizze_valori';
  static const String DET_PIZZE_ALLERGENI = 'det_pizze_allergeni';
+ static const String TABLE_PARAMETER = 'parametri';
 
  static final DbOp instance = DbOp._internal();
 
@@ -58,7 +59,7 @@ class DbOp {
 
   FutureOr<void> _onCreate(Database db, int version) async{
       await db.execute('CREATE TABLE $TABLE_PIZZE '
-      '(id INTEGER PRIMARY KEY AUTOINCREMENT,'
+      '(key INTEGER PRIMARY KEY AUTOINCREMENT,'
       ' nome TEXT,'
       ' descrizione TEXT,'
       ' prezzo INTEGER,'
@@ -70,7 +71,9 @@ class DbOp {
       '(id INTEGER PRIMARY KEY AUTOINCREMENT, '
       ' nome TEXT,'
       ' descrizione TEXT,'
-      ' prezzo INTEGER'
+      ' prezzo INTEGER,' 
+      ' tipologia TEXT,'     
+      ' key INTEGER'
       ')'
       );
 
@@ -115,6 +118,13 @@ class DbOp {
        ' cod_valore INTEGER'
        ')'       
        );
+
+       await db.execute('CREATE TABLE $TABLE_PARAMETER '
+       '(id INTEGER PRIMARY KEY AUTOINCREMENT,'
+       ' update_version TEXT,'
+       ' last_update_time INTEGER'
+       ')'
+       );
   }
 
 
@@ -140,5 +150,41 @@ class DbOp {
           });
       });
    }
+
+   Future<bool> versionExsist() async {
+    int len =0;
+    await db.then((value) async {
+       len = Sqflite.firstIntValue(await value!.rawQuery('SELECT COUNT(*) FROM $TABLE_PARAMETER'))!;       
+    });
+    return len > 0;
+   }
+
+Future<void> updateVersion(int timeUpdate) async {
+   await versionExsist().then((value) {
+      if(!value) {
+         db.then((value) {
+           value!.insert('$TABLE_PARAMETER', {'update_version': '2024-1','last_update_time': timeUpdate});
+         });
+      }
+      else {
+        db.then((dbb) {
+            dbb!.update('$TABLE_PARAMETER', {'last_update_time': timeUpdate});
+        });
+      }
+   });
+}
+
+Future<int> getLastUpdateTime() async {
+  int timeMilli=0;
+  return await db.then((value) {
+      var val = value!.query('$TABLE_PARAMETER');
+     return val.then((value) {
+        return value.last['last_update_time'] as int;
+     });
+     
+  });
+  
+}
+
 
 }
