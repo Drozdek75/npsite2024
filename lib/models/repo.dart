@@ -12,7 +12,7 @@ class repo {
     ListaIngredienti mozzarella = ListaIngredienti(
             key: 1,
             nome: 'mozzarella',
-            descrizione: 'fior di latte',
+            descrizione: 'mozzarella fior di latte',
             prezzo: 1.00);
         ListaIngredienti pomodoro = ListaIngredienti(
             key: 2,
@@ -261,10 +261,10 @@ class repo {
             prezzo: 1.00);
         ListaIngredienti guanciale = ListaIngredienti(
             key: 63, nome: 'guanciale', descrizione: 'guanciale', prezzo: 1.80);
-        ListaIngredienti pesto = ListaIngredienti(
+        ListaIngredienti Pto = ListaIngredienti(
             key: 64,
-            nome: 'pesto alla genovese',
-            descrizione: 'pesto alla genovese',
+            nome: 'Pto alla genovese',
+            descrizione: 'Pto alla genovese',
             prezzo: 1.00);
         ListaIngredienti aglio = ListaIngredienti(
             key: 65,
@@ -375,7 +375,7 @@ class repo {
           pepe,
           pecorino,
           guanciale,
-          pesto,
+          Pto,
           aglio,
           carciofi,
           basilico,
@@ -871,7 +871,7 @@ class repo {
             tipologia: 'NW');
         ListaPizze manarolap = ListaPizze(
             nome: 'manarola',
-            descrizione: 'pizza con pesto alla genovese, salsiccia e ciliegino',
+            descrizione: 'pizza con Pto alla genovese, salsiccia e ciliegino',
             prezzo: 9.00,
             listaIngredienti: [1, 64, 26, 25],
             tipologia: 'NW');

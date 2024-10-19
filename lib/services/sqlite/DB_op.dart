@@ -176,13 +176,14 @@ Future<void> updateVersion(int timeUpdate) async {
 
 Future<int> getLastUpdateTime() async {
   int timeMilli=0;
-  return await db.then((value) {
+ /* return await db.then((value) {
       var val = value!.query('$TABLE_PARAMETER');
      return val.then((value) {
         return value.last['last_update_time'] as int;
      });
      
-  });
+  });*/
+  return timeMilli;
   
 }
 

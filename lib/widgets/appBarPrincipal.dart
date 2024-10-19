@@ -100,7 +100,7 @@ class _appBarPrincipalState extends State<appBarPrincipal> {
                            color: Color.fromARGB(255, 242, 242, 242),
                           padding: EdgeInsets.only(left: 8),
                           height: 45,                      
-                          child: Expanded(
+                       
                             child: FittedBox(
                               fit:  BoxFit.fill,
                               child: Row(
@@ -171,7 +171,7 @@ class _appBarPrincipalState extends State<appBarPrincipal> {
                             ),
                           ),
                         ),
-                      ),
+                      
                      ),
                   ),
                     Divider(

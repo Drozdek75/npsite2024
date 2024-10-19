@@ -53,6 +53,20 @@ class _menuState extends State<menu> {
 void initState() {
     super.initState();
 
+    Future.delayed(Duration.zero, () {
+         List<int?> argumentsRoute = ModalRoute.of(context)?.settings.arguments != null ? ModalRoute.of(context)?.settings.arguments as List<int?> : [];
+    print(argumentsRoute);
+    if(argumentsRoute.isNotEmpty) {
+      setListByProducts(argumentsRoute, context);
+    }
+    });
+
+   
+
+    //final arguments = ModalRoute.of(context)!.settings.arguments as List<int>;
+
+   // print(arguments);
+
   rp = getRepo();
   tempList.addAll(rp);
    /* rp = rep.getRepoPizze.lstPizze;
@@ -68,15 +82,15 @@ void initState() {
 
     print(lstKey);
 
-    WidgetsBinding.instance
+  /*  WidgetsBinding.instance
         .addPostFrameCallback((_) {
           print('after build');      
            _controller.showTooltip();  
           Future.delayed(Duration(seconds: 10), () {
             _controller.hideTooltip();  
-          },);    
+          },);   
           
-        });
+        });*/
   }
 
 
@@ -109,6 +123,9 @@ void initState() {
 
   @override
   Widget build(BuildContext context) {
+
+   
+
     return SafeArea(child: Scaffold(
 
       floatingActionButton: Visibility(
@@ -126,12 +143,12 @@ void initState() {
         },
         mini: true,
         backgroundColor: Colors.blue[100],
-        child: Image(image: AssetImage('assets/images/scroll_up.png'), height: 37, color: Color.fromARGB(255, 0, 0, 0),),
+        child: const Image(image: AssetImage('assets/images/scroll_up.png'), height: 37, color: Color.fromARGB(255, 0, 0, 0),),
         ),
       ),
 
       bottomNavigationBar: SingleChildScrollView(scrollDirection: Axis.horizontal, child: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           border: Border(top: BorderSide(color: Color.fromARGB(95, 0, 0, 0), width: 0.2)),
           color: Colors.white
         ),
@@ -164,7 +181,7 @@ void initState() {
                 },                
                  child: Column(
                                children: [
-                  Image(image: AssetImage('assets/images/mix.png'), height: 24, color:selectionCategory == 9? Colors.green:  Colors.black87,),
+                  Image(image: const AssetImage('assets/images/mix.png'), height: 24, color:selectionCategory == 9? Colors.green:  Colors.black87,),
                   Text('Filtra per ingrdienti', style: GoogleFonts.openSans(fontSize: 12, color: selectionCategory == 9? Colors.green:  Colors.black87, fontWeight: FontWeight.bold),)
                                ],
                               ),
@@ -175,20 +192,21 @@ void initState() {
                 onTap: () {
                     setState(() {
                       selectionCategory = 0;
-                      labelCategoria = categorie[0]; 
-                      setListByCategory('ALL');
-                      textCircle = 'CM';                     
+                      labelCategoria = categorie[0];                    
+                      textCircle = 'CM'; 
+                      setListByCategory('ALL');                    
                     });
+                    
                 },                
                  child: Column(
                                children: [
-                  Image(image: AssetImage('assets/images/completa.png'), height: 24, color:selectionCategory == 0? Colors.green:  Colors.black87,),
+                  Image(image: const AssetImage('assets/images/completa.png'), height: 24, color:selectionCategory == 0? Colors.green:  Colors.black87,),
                   Text('Completa', style: GoogleFonts.openSans(fontSize: 12, color: selectionCategory == 0? Colors.green:  Colors.black87, fontWeight: FontWeight.bold),)
                                ],
                               ),
                ),
           
-             SizedBox(width: 28,),        
+             const SizedBox(width: 28,),        
                GestureDetector(
                 onTap: () {
                    setState(() {
@@ -200,12 +218,12 @@ void initState() {
                 },
                  child: Column(
                                children: [
-                  Image(image: AssetImage('assets/images/c.png'), height: 24, color:selectionCategory ==1? Colors.green:  Colors.black87),
+                  Image(image: const AssetImage('assets/images/c.png'), height: 24, color:selectionCategory ==1? Colors.green:  Colors.black87),
                   Text('Classiche', style: GoogleFonts.openSans(fontSize: 12, color:selectionCategory == 1? Colors.green:  Colors.black87, fontWeight: FontWeight.bold),)
                                ],
                               ),
                ),
-             SizedBox(width: 28,),
+             const SizedBox(width: 28,),
              GestureDetector(
               onTap: () {
                 setState(() {
@@ -217,12 +235,12 @@ void initState() {
               },
                child: Column(
                 children: [
-                  Image(image: AssetImage('assets/images/s.png'), height: 24, color:selectionCategory ==2? Colors.green:  Colors.black87),
+                  Image(image: const AssetImage('assets/images/s.png'), height: 24, color:selectionCategory ==2? Colors.green:  Colors.black87),
                   Text('Speciali', style: GoogleFonts.openSans(fontSize: 12, color:selectionCategory ==2? Colors.green:  Colors.black87, fontWeight: FontWeight.bold),)
                 ],
                ),
              ),
-              SizedBox(width: 28,),
+              const SizedBox(width: 28,),
              GestureDetector(
               onTap: () {
                  setState(() {
@@ -234,12 +252,12 @@ void initState() {
               },
                child: Column(
                 children: [
-                  Image(image: AssetImage('assets/images/melanzana.png'), height: 24, color:selectionCategory ==3? Colors.green:  Colors.black87),
+                  Image(image: const AssetImage('assets/images/melanzana.png'), height: 24, color:selectionCategory ==3? Colors.green:  Colors.black87),
                   Text('Con verdure', style: GoogleFonts.openSans(fontSize: 12, color:selectionCategory ==3? Colors.green:  Colors.black87),)
                 ],
                ),
              ),
-                SizedBox(width: 28,),
+                const SizedBox(width: 28,),
              GestureDetector(
               onTap: () {
                  setState(() {
@@ -251,12 +269,12 @@ void initState() {
               },
                child: Column(
                 children: [
-                  Image(image: AssetImage('assets/images/octopus.png'), height: 24, color:selectionCategory ==4? Colors.green:  Colors.black87),
+                  Image(image: const AssetImage('assets/images/octopus.png'), height: 24, color:selectionCategory ==4? Colors.green:  Colors.black87),
                   Text('Con pesce', style: GoogleFonts.openSans(fontSize: 12, color:selectionCategory ==4? Colors.green:  Colors.black87, fontWeight: FontWeight.bold),)
                 ],
                ),
              ),
-              SizedBox(width: 28,),
+              const SizedBox(width: 28,),
              GestureDetector(
               onTap: () {
                   setState(() {
@@ -268,29 +286,29 @@ void initState() {
               },
                child: Column(
                 children: [
-                  Image(image: AssetImage('assets/images/calzone.png'), height: 24, color:selectionCategory ==5? Colors.green:  Colors.black87),
+                  Image(image: const AssetImage('assets/images/calzone.png'), height: 24, color:selectionCategory ==5? Colors.green:  Colors.black87),
                   Text('Calzoni', style: GoogleFonts.openSans(fontSize: 12, color:selectionCategory ==5? Colors.green:  Colors.black87, fontWeight: FontWeight.bold),)
                 ],
                ),
              ),
-              SizedBox(width: 28,),
+              const SizedBox(width: 28,),
              Column(
               children: [
-                Image(image: AssetImage('assets/images/new.png'), height: 24,),
+                const Image(image: AssetImage('assets/images/new.png'), height: 24,),
                 Text('Novità', style: GoogleFonts.openSans(fontSize: 12, color: Colors.black87, fontWeight: FontWeight.bold),)
               ],
              ),
-               SizedBox(width: 28,),
+               const SizedBox(width: 28,),
               Column(
               children: [
-                Image(image: AssetImage('assets/images/metro.png'), height: 24,),
+                const Image(image: AssetImage('assets/images/metro.png'), height: 24,),
                 Text('Pizza a metro', style: GoogleFonts.openSans(fontSize: 12, color: Colors.black87, fontWeight: FontWeight.bold),)
               ],
              ),
-             SizedBox(width: 28,),
+             const SizedBox(width: 28,),
               Column(
               children: [
-                Image(image: AssetImage('assets/images/add.png'), height: 24,),
+                const Image(image: AssetImage('assets/images/add.png'), height: 24,),
                 Text('Aggiunte', style: GoogleFonts.openSans(fontSize: 12, color: Colors.black87, fontWeight: FontWeight.bold),)
               ],
              ),
@@ -302,131 +320,139 @@ void initState() {
       appBar: AppBar(
         toolbarHeight: 162,
         toolbarOpacity: 0,
-        flexibleSpace: appBarPrincipal(),
+        flexibleSpace: const appBarPrincipal(),
         
       ),
-       backgroundColor: Color.fromARGB(255, 255, 255, 255),
+       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
        body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
          children: [
            Container(
             width: MediaQuery.of(context).size.width - 30,
              child: SingleChildScrollView(
               controller: _scrollController,
              
-              child: Expanded(
+              
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                     // Container(                
-                        Row(
-                          children: [
-                            Container(  
-                     
-                              width: 150,
-                              child: Column(
-                                textBaseline: TextBaseline.ideographic,
-                                crossAxisAlignment: CrossAxisAlignment.start,                          
-                                children: [
-                                  Text('Menù', style: GoogleFonts.openSans(fontSize: 18, color: const Color.fromARGB(255, 57, 57, 57), fontWeight: FontWeight.bold),),
-                                  Text('$labelCategoria', style:  GoogleFonts.openSans(fontSize: 14, color: const Color.fromARGB(255, 57, 57, 57),),),
-                                ],
-                              )),
-             
+                  child: Container(
+                    
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                       // Container(                
+                          Row(
+                            children: [
                               Container(  
-                                 
-                                width: MediaQuery.of(context).size.width-200,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
+                              
+                                width: 150,
+                                child: Column(
+                                  textBaseline: TextBaseline.ideographic,
+                                  crossAxisAlignment: CrossAxisAlignment.start,                          
                                   children: [
-                                    CircleAvatar(backgroundColor: Colors. blue, child: Text(textCircle, style: GoogleFonts.openSans(fontSize: 18, color: Colors.white),),),
+                                    Text('Menù', style: GoogleFonts.openSans(fontSize: 18, color: const Color.fromARGB(255, 57, 57, 57), fontWeight: FontWeight.bold),),
+                                    Text('$labelCategoria', style:  GoogleFonts.openSans(fontSize: 14, color: const Color.fromARGB(255, 57, 57, 57),),),
                                   ],
                                 )),
-                                
-                          ],
-                        ),
-             
-                      
-                     
-                            
-                     // ),
-                 
-                     
-                     Padding(
-                       padding: const EdgeInsets.only(top: 10),
-                       child: Container(
-                         decoration: BoxDecoration(
-               // border: Border(top: BorderSide(color: Color.fromARGB(220, 0, 0, 0), width: 0.2,)),
-                color: Colors.white
-              ),
-                         child: Column(                          
-                           children: rp.map((e) => Column(                           
-                             children: [
-                               ListTile(
-                                key: lstKey.containsKey(e.nome!)? lstKey[e.nome]: null,
-                                 titleAlignment: ListTileTitleAlignment.top,
-                                  minVerticalPadding: 10.0,
-                                title: Text('${e.nome}', style: GoogleFonts.roboto(fontSize: 15, color: Colors.black87),),
-                                subtitle: e.nome == 'deliziosa'? Text('pomodoro'):  Text('${rep.lstStrIngredientiByPizza(e.nome!)}', style: GoogleFonts.roboto(fontSize: 12, color: Colors.black54),),
-                               /* trailing: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [                        
-                                    Image(image: AssetImage('assets/images/heart.png'), height: 24, color: e.prezzo! < 7.00? const Color.fromARGB(255, 30, 30, 30) : Color.fromARGB(255, 173, 173, 173),),
-                                    Text('53')
-                                  ],
-                                ),*/
-                                leading: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    GestureDetector(
-                                      onTap: () {
-                                        repo rep = repo();
-                                        print('${rep.lstStrIngredientiByPizza(e.nome!)}');
-                                        
-                                        print('lista ingerdienti: ${e.listaIngredienti}');
-                                      },
-                                      child: Text('€ ${e.prezzo!.toStringAsFixed(2)}', style: GoogleFonts.roboto(fontSize: 15, color: Colors.blue,),)),
-                                  ],
-                                ),
-                               
-                                
-                               
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text('77', style: GoogleFonts.openSans(fontSize: 12, color: Colors.black38),),
-                                    SizedBox(width: 7,),
-                                    Image(image: AssetImage('assets/images/heart.png'), height: 17, color: e.prezzo! < 7.00? const Color.fromARGB(255, 30, 30, 30) : Color.fromARGB(255, 173, 173, 173),), 
-                                    SizedBox(width: 18,),                            
-                                    Text('152', style: GoogleFonts.openSans(fontSize: 12, color: Colors.black38),),
-                                    SizedBox(width: 7,),
-                                    Image(image: AssetImage('assets/images/click.png'), height: 17, color: e.prezzo! < 7.00? const Color.fromARGB(255, 30, 30, 30) : Color.fromARGB(255, 173, 173, 173),),
-                                     SizedBox(width: 18,),
-                                    Image(image: AssetImage('assets/images/info_prod.png'), height: 17, color: e.prezzo! < 7.00? const Color.fromARGB(255, 30, 30, 30) : Color.fromARGB(255, 173, 173, 173),),
-                                  ],
-                                ),
-                                SizedBox(height: 7,),
-                                 Divider(height: 0.1, color: Color.fromARGB(95, 188, 188, 188),)
-                             ],
-                           )                            
-                            
-                            ).toList(),
+                                 
+                                Container(  
+                                   
+                                  width: MediaQuery.of(context).size.width-200,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      CircleAvatar(backgroundColor: Colors. blue, child: Text(textCircle, style: GoogleFonts.openSans(fontSize: 18, color: Colors.white),),),
+                                    ],
+                                  )),
+                                  
+                            ],
+                          ),
+                                 
+                        
+                       
+                              
+                       // ),
+                                     
+                       
+                       Padding(
+                         padding: const EdgeInsets.only(top: 10),
+                         child: Container(
+                           decoration: const BoxDecoration(
+                                   // border: Border(top: BorderSide(color: Color.fromARGB(220, 0, 0, 0), width: 0.2,)),
+                                    color: Colors.white
+                                  ),
+                           child: Column(     
+                             mainAxisAlignment: MainAxisAlignment.center,                     
+                             children: rp.map((e) => Column(   
+                               mainAxisAlignment: MainAxisAlignment.center,                      
+                               children: [
+                                 ListTile(
+                                  key: lstKey.containsKey(e.nome!)? lstKey[e.nome]: null,
+                                   titleAlignment: ListTileTitleAlignment.top,
+                                    minVerticalPadding: 10.0,
+                                  title: Text('${e.nome}', style: GoogleFonts.roboto(fontSize: 15, color: Colors.black87),),
+                                  subtitle: e.nome == 'deliziosa'? Text('pomodoro'):  Text('${rep.lstStrIngredientiByPizza(e.nome!)}', style: GoogleFonts.roboto(fontSize: 12, color: Colors.black54),),
+                                 /* trailing: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [                        
+                                      Image(image: AssetImage('assets/images/heart.png'), height: 24, color: e.prezzo! < 7.00? const Color.fromARGB(255, 30, 30, 30) : Color.fromARGB(255, 173, 173, 173),),
+                                      Text('53')
+                                    ],
+                                  ),*/
+                                  leading: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          repo rep = repo();
+                                          print('${rep.lstStrIngredientiByPizza(e.nome!)}');
+                                          
+                                          print('lista ingerdienti: ${e.listaIngredienti}');
+                                        },
+                                        child: Text('€ ${e.prezzo!.toStringAsFixed(2)}', style: GoogleFonts.roboto(fontSize: 15, color: Colors.blue,),)),
+                                    ],
+                                  ),
+                                 
+                                  
+                                 
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text('77', style: GoogleFonts.openSans(fontSize: 12, color: Colors.black38),),
+                                      const SizedBox(width: 7,),
+                                      Image(image: const AssetImage('assets/images/heart.png'), height: 17, color: e.prezzo! < 7.00? const Color.fromARGB(255, 30, 30, 30) : Color.fromARGB(255, 173, 173, 173),), 
+                                      const SizedBox(width: 18,),                            
+                                      Text('152', style: GoogleFonts.openSans(fontSize: 12, color: Colors.black38),),
+                                      const SizedBox(width: 7,),
+                                      Image(image: const AssetImage('assets/images/click.png'), height: 17, color: e.prezzo! < 7.00? const Color.fromARGB(255, 30, 30, 30) : Color.fromARGB(255, 173, 173, 173),),
+                                       const SizedBox(width: 18,),
+                                      Image(image: const AssetImage('assets/images/info_prod.png'), height: 17, color: e.prezzo! < 7.00? const Color.fromARGB(255, 30, 30, 30) : Color.fromARGB(255, 173, 173, 173),),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 7,),
+                                   const Divider(height: 0.1, color: Color.fromARGB(95, 188, 188, 188),)
+                               ],
+                             )                            
+                              
+                              ).toList(),
+                           ),
                          ),
-                       ),
-                     )
-                      
-                      
-                    ],
+                       )
+                        
+                        
+                      ],
+                    ),
                   ),
                 ),
-              ),
+             
              
              ),
            ),
 
            Container(width: 30,
+           alignment: Alignment.center,
            child: SingleChildScrollView(
              scrollDirection: Axis.vertical,
              child: Column(
@@ -455,39 +481,72 @@ void initState() {
     ));
   }
 
-  void setListByCategory(String category) {
+  void setListByProducts(List<int?> prod, BuildContext context) {
+    List<ListaPizze> temp =[];
+    rp.clear();
+    rp.addAll(tempList);
+    rp.forEach((element) {
+       print(element.listaIngredienti);
+        prod.forEach((el) {
+          if(element.listaIngredienti!.contains(el)) {
+            if(!temp.contains(element)) {
+             temp.add(element);
+            }
+          }
+         
+        });
+    });
+    setState(() {
+       rp.clear();
+       rp.addAll(temp);  
+      //rp.removeWhere((element) => )   
+       letterAppeared.clear();
+       lstKey.clear();
+       selectionCategory = 9;
+       labelCategoria = categorie[9];                        
+       textCircle ='FT';
+    });
+     setLetterAppeared(rp);
 
   
 
-   
+    
+    
+  }
+
+  void setListByCategory(String category) {   
+
+    rp.addAll(tempList);
+    
+   if(category != 'ALL') {
      rp.clear();
      rp.addAll(tempList);
-     letterAppeared.clear();
-     lstKey.clear();
-     print(lstKey);
-     print(rp.length);
-     
-
-     
-   
-   if(category != 'ALL') {
     setState(() {      
       rp.removeWhere((element) => element.tipologia != category);
     
     });
    }
+   else {
+    setState(() {
+      rp.clear();
+      rp.addAll(tempList);
+    });
+   }
+
+    letterAppeared.clear();
+    lstKey.clear();
 
   setLetterAppeared(rp);
    if (_scrollController.hasClients) { 
             final position =_scrollController.initialScrollOffset;
             _scrollController.animateTo( 
               position, 
-              duration: Duration(seconds: 2), 
+              duration: const Duration(seconds: 2), 
               curve: Curves.easeOut, 
             ); 
           } 
      
-    print(rp.length);
+   
   }
 
 }
