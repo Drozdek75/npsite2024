@@ -91,100 +91,121 @@ class _filterState extends State<filter> {
   Widget build(BuildContext context) {
     Random ran = Random();
     return  Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      
       bottomNavigationBar: Container(
+        color: Colors.blue,
+        child: ButtonBar(
+          
+         
+             alignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Icon(Icons.arrow_back_ios, color: Colors.white,),
+            Text('elementi selezionati ${widget.select.length}'),
+            GestureDetector(child: Icon(Icons.arrow_forward_ios, color: Colors.white,), onTap: () {
+              List<int?> lstSelectFinal = widget.userList.where((element) => widget.select.contains(element.descrizione)).map((element) => element.key).toList();                                    
+              Navigator.pushNamed(context, '/menu', arguments: lstSelectFinal);
+            },),
+          ],
+        ),
+      ),
+      
+   /*   bottomNavigationBar: Container(
         decoration: BoxDecoration(border: Border(top: BorderSide(color: Color.fromARGB(255, 187, 187, 187), width: 0.4)), color: const Color.fromARGB(255, 234, 234, 234),),
         padding: EdgeInsets.only(top: 10, bottom: 10),
        
-        child: Flexible(
-          child: OverflowBar(
-        //    alignment: MainAxisAlignment.spaceEvenly,
-            
-            children: <Widget>[
-               SizedBox(
-                height: 60,
-                 child: Column(
-                  children:[
-                    Container(
-                      height: 30,
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width/2 - 100,
-                            child: Row(
-                              children: [
-                                  Icon(Icons.arrow_back_ios),
-                                 
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width/2 + 100,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                  ToggleButtons(children: logicalOperation,
-                                   isSelected: selectLogicOp,
-                                   constraints: BoxConstraints(
-                                    minHeight: 27,
-                                    minWidth: 50
-                                   ),
-                                   
-                                   direction: Axis.horizontal,
-                                   selectedBorderColor: Colors.green,
-                                   fillColor: const Color.fromARGB(0, 37, 37, 37),
-                                   selectedColor: Colors.green,
-                                   color: Colors.black54,
-                                   borderColor: Colors.transparent,
-                                   onPressed: (index) {
+      ),*/
+       /*
+        child: Column(
+          children: [
+            Flexible(
+              child: OverflowBar(
+            //    alignment: MainAxisAlignment.spaceEvenly,
+                
+                children: <Widget>[
+                   SizedBox(
+                    height: 60,
+                     child: Column(
+                      children:[
+                        Container(
+                          height: 30,
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width/2 - 100,
+                                child: Row(
+                                  children: [
+                                      Icon(Icons.arrow_back_ios),
                                      
-                                   },
-                                    ),
-                                  SizedBox(width: 25,),
-                                  GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        widget.select.clear();
-                                      });
-                                    },
-                                    child: Icon(Icons.refresh)),
-                                  SizedBox(width: 25,),
-                                  GestureDetector(
-                                    onTap: () {
-                                     
-                                     List<int?> lstSelectFinal = widget.userList.where((element) => widget.select.contains(element.descrizione)).map((element) => element.key).toList();
-                                     print(lstSelectFinal);
-                                     Navigator.pushNamed(context, '/menu', arguments: lstSelectFinal);
-                                    
-                                    },
-                                    child: Icon(Icons.arrow_forward_ios)),
-                                  
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 30,
-                      padding: EdgeInsets.only(top: 15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width/2 + 100,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                      ToggleButtons(children: logicalOperation,
+                                       isSelected: selectLogicOp,
+                                       constraints: BoxConstraints(
+                                        minHeight: 27,
+                                        minWidth: 50
+                                       ),
                                        
-                        children: [Text('${widget.select.length} elementi selezionati')],
-                      ),
-                    )
-                  
-                  ],
-                   
-                 ),
-               )
-                  
-            ],
-          ),
+                                       direction: Axis.horizontal,
+                                       selectedBorderColor: Colors.green,
+                                       fillColor: const Color.fromARGB(0, 37, 37, 37),
+                                       selectedColor: Colors.green,
+                                       color: Colors.black54,
+                                       borderColor: Colors.transparent,
+                                       onPressed: (index) {
+                                         
+                                       },
+                                        ),
+                                      SizedBox(width: 25,),
+                                      GestureDetector(
+                                        onTap: () {
+                                          setState(() {
+                                            widget.select.clear();
+                                          });
+                                        },
+                                        child: Icon(Icons.refresh)),
+                                      SizedBox(width: 25,),
+                                      GestureDetector(
+                                        onTap: () {
+                                         
+                                         List<int?> lstSelectFinal = widget.userList.where((element) => widget.select.contains(element.descrizione)).map((element) => element.key).toList();
+                                         print(lstSelectFinal);
+                                         Navigator.pushNamed(context, '/menu', arguments: lstSelectFinal);
+                                        
+                                        },
+                                        child: Icon(Icons.arrow_forward_ios)),
+                                      
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          height: 30,
+                          padding: EdgeInsets.only(top: 15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                                           
+                            children: [Text('${widget.select.length} elementi selezionati')],
+                          ),
+                        )
+                      
+                      ],
+                       
+                     ),
+                   )
+                      
+                ],
+              ),
+            ),
+          ],
         ),
-      ),
+      ),*/
        
         body:Row(
           children: [
@@ -210,7 +231,8 @@ class _filterState extends State<filter> {
                         runSpacing: 5.0,
                         children: widget.userList.map((e) {
               
-                          print(globalK);
+                          print('descrizione ${e.descrizione}');
+                        
                        
                           return Container(
                             key: globalK2.containsKey(e.key)? globalK2[e.key]: null,

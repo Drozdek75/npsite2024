@@ -94,7 +94,7 @@ class _appBarPrincipalState extends State<appBarPrincipal> {
                     child: SingleChildScrollView( 
                                          
                       scrollDirection: Axis.horizontal,
-                      child: Expanded(
+                      child: Container(
                         child: Container(
                                                 
                            color: Color.fromARGB(255, 242, 242, 242),

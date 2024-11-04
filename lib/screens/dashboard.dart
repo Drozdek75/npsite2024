@@ -30,10 +30,15 @@ class _dashboardState extends State<dashboard> {
       backgroundColor: Colors.white,
       
 
-      appBar:  AppBar(
+      appBar: AppBar(
         toolbarHeight: 162,
         toolbarOpacity: 0,
-        flexibleSpace: appBarPrincipal(),
+      flexibleSpace: Column(
+          children: [
+            appBarPrincipal(),
+        //   Text('hallo')
+          ],
+        ),
         automaticallyImplyLeading: false,  
        
       backgroundColor: Color.fromARGB(255, 255, 255, 255),

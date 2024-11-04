@@ -34,7 +34,7 @@ void main() async {
     }
   } catch (e) {
     print(e.toString());
-  } /*
+  } 
 try {
   UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
     email: "syseng75@gmail.com",
@@ -48,7 +48,7 @@ try {
   }
 } catch (e) {
   print(e);
-}*/
+}
   runApp(const MyApp());
 }
 
@@ -66,9 +66,9 @@ class MyApp extends StatelessWidget {
         ],
         mappers: [],
         providers: [
-          Provider<DbOp>(
+       /*   Provider<DbOp>(
             create: (context) => DbOp.instance,
-          ),
+          ),*/
         ],
         repositories: [],
         child: MaterialApp(
@@ -119,14 +119,14 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
 
-    DatabaseReference databaseReference =
+   /*DatabaseReference databaseReference =
         FirebaseDatabase.instance.reference().child('version');
 
     Future<DataSnapshot> versione = databaseReference.get();
     versione.then((value) {
       BlocProvider.of<UpdatedataBloc>(context)
           .add(loadData(version: value.value.toString()));
-    });
+    });*/
 
     /*databaseReference.onValue.listen((event) {
          

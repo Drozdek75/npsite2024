@@ -48,7 +48,7 @@ void skip(BuildContext context) {
             duration: Duration(milliseconds: 8000),
             child: Image(image: AssetImage('assets/images/logo_final.png'),
             width: 150
-                     ),
+                     )
           ),
              ),
        ));
